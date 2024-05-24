@@ -18,3 +18,21 @@ export const links: NavbarLinksType[] = [
       path: '/',
     },
   ]
+
+  export const specialSaleData = [
+    {
+      img: '/images/hotel1.webp',
+      rows: 2,
+      cols: 2,
+    },
+    {
+      img: '/images/hotel2.webp',
+      rows: 1,
+      cols: 2,
+    },
+    {
+      img: '/images/hotel3.webp',
+      rows: 1,
+      cols: 2,
+    },
+  ];
