@@ -19,7 +19,109 @@ export const theme = createTheme({
       xl: 1440,
     },
   },
-})
+  components: {
+    MuiButton: {
+      defaultProps: {
+        style: {
+          fontFamily: 'Vazir',
+          fontWeight: '600',
+          fontStyle: 'normal',
+          lineHeight: '25.6px',
+          textTransform: 'lowercase',
+          gap: '10px',
+          borderRadius: '8px',
+        },
+      },
+      variants: [
+        {
+          props: {
+            size: 'large',
+          },
+          style: {
+            fontSize: '1em',
+            padding: '10px 24px',
+          },
+        },
+        {
+          props: {
+            size: 'medium',
+          },
+          style: {
+            fontSize: '0.875rem',
+            padding: '8px 24px',
+          },
+        },
+        {
+          props: {
+            size: 'small',
+          },
+          style: {
+            fontSize: '0.75rem',
+            padding: '8px 12px',
+          },
+        },
+      ],
+    },
+  },
+  typography:{
+    h1:{
+      fontSize:'2.75rem',//44
+      lineHeight:'140%',
+      fontWeight:'700',
+    },
+    h2:{
+      fontSize:'2.5rem',//40
+      lineHeight:'140%',
+      fontWeight:'700',
+        },
+    h3:{
+      fontSize:'2rem',//32
+      lineHeight:'140%',
+      fontWeight:'700',
+    },
+    h4:{
+      fontSize:'1.5rem',//24
+      lineHeight:'140%',
+      fontWeight:'700',
+    },
+    h5:{
+      fontSize:'1.25rem',//20
+      lineHeight:'140%',
+      fontWeight:'700',
+    },
+    h6:{
+      fontSize:'1.125rem',//18
+      lineHeight:'140%',
+      fontWeight:'600',
+    },
+    body1:{
+      fontSize:'1rem',//16
+      lineHeight:'180%',
+      fontWeight:'600',
+    },
+    body2:{
+      fontSize:'0.875rem',//14
+      lineHeight:'180%',
+      fontWeight:'600',
+      display: '-webkit-box',
+      WebkitLineClamp:'3',
+      WebkitBoxOrient:'vertical',
+      overflow:'hidden',
+      textOverflow:'ellipsis',
+      textAlign:'center',
+    },
+    subtitle1:{
+      fontSize:'0.75rem',//12
+      lineHeight:'180%',
+      fontWeight:'600',
+    },
+    subtitle2:{
+      fontSize:'0.625rem',//10
+      lineHeight:'180%',      
+      fontWeight:'500',
+    },
+      },
+    })
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
     xs: true;
