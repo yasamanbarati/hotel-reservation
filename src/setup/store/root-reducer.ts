@@ -1,8 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit"
-import homeSlice from "scenes/_slice/home.slice"
+import HomeSlice from "scenes/_slice/home.slice"
+import roomsSlice from "scenes/_slice/rooms.slice"
 
 const rootReducer = combineReducers({
-  home: homeSlice,
+  home: HomeSlice,
+  rooms: roomsSlice
 })
 
 export type RootState = ReturnType<typeof rootReducer>
