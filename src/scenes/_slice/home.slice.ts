@@ -1,32 +1,80 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { NavbarLinksType } from './type'
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  HotelRoomsInformationType,
+  NavbarLinksType,
+  RoomsTypesProps,
+} from "./type";
 
 interface ReduxBodyType {
-  NavbarLinks: NavbarLinksType[]
+  NavbarLinks: NavbarLinksType[];
+  RoomsType: RoomsTypesProps[];
+  HotelRooms: HotelRoomsInformationType[];
+  FilterHotelRooms: HotelRoomsInformationType[];
+  CategoryName: string | RoomsTypesProps | undefined;
 }
 
 const initialState: ReduxBodyType = {
-  NavbarLinks : []
-}
+  NavbarLinks: [],
+  RoomsType: [],
+  HotelRooms: [],
+  FilterHotelRooms: [],
+  CategoryName: "",
+};
 
 const setNavbarLinks = (
   state: ReduxBodyType,
-  action: PayloadAction<NavbarLinksType[]>,
+  action: PayloadAction<NavbarLinksType[]>
 ) => {
-  state.NavbarLinks = action.payload
-}
+  state.NavbarLinks = action.payload;
+};
 
-const homeSlice = createSlice({
-  name: 'homeState',
+const setRoomsType = (
+  state: ReduxBodyType,
+  action: PayloadAction<RoomsTypesProps[]>
+) => {
+  state.RoomsType = action.payload;
+};
+
+const setHotelRooms = (
+  state: ReduxBodyType,
+  action: PayloadAction<HotelRoomsInformationType[]>
+) => {
+  state.HotelRooms = action.payload;
+};
+
+const setFilterHotelRooms = (
+  state: ReduxBodyType,
+  action: PayloadAction<number>
+) => {
+  state.FilterHotelRooms = state.HotelRooms;
+
+  state.CategoryName = state.RoomsType.find(
+    (item) => item.id === action.payload
+  )?.title;
+  
+  state.FilterHotelRooms = state.HotelRooms.filter((item) => {
+    return item.type == state.CategoryName;
+  });
+  console.log(state.FilterHotelRooms);
+  
+};
+
+const HomeSlice = createSlice({
+  name: "homeState",
   initialState,
   reducers: {
-    setNavbarLinks
+    setNavbarLinks,
+    setRoomsType,
+    setHotelRooms,
+    setFilterHotelRooms,
   },
-})
+});
 
 export const {
-  setNavbarLinks: setNavbarLinksAction
-} = homeSlice.actions
+  setNavbarLinks: setNavbarLinksAction,
+  setRoomsType: setRoomsTypeAction,
+  setHotelRooms: setHotelRoomsAction,
+  setFilterHotelRooms: setFilterHotelRoomsAction,
+} = HomeSlice.actions;
 
-export default homeSlice.reducer
+export default HomeSlice.reducer;
