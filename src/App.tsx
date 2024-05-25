@@ -1,9 +1,13 @@
-import { Fragment } from 'react'
-import { CssBaseline, ThemeProvider } from '@mui/material'
-import { Provider } from 'react-redux'
-import { store } from 'setup/store'
-import { theme } from 'setup/theme'
-import { Root } from 'scenes'
+import { Fragment } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { theme } from "setup/theme";
+import { store } from "setup/store";
+
+import Root from "scenes/pages";
+import { Rooms } from "scenes/pages/rooms";
+import SingleRoom from "scenes/pages/rooms/single";
 
 export const App = () => {
   return (
@@ -11,9 +15,13 @@ export const App = () => {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Root />
+          <Routes>
+            <Route path="/" element={<Root />} />
+            <Route path="/rooms" element={<Rooms />} />
+            <Route path="/rooms/:id" element={<SingleRoom />} />
+          </Routes>
         </ThemeProvider>
       </Provider>
     </Fragment>
-  )
-}
+  );
+};
