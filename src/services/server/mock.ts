@@ -42,28 +42,28 @@ export const specialSaleData = [
 
 export const RoomsTypes: RoomsTypesProps[] = [
   {
-    id: 1,
-    title: "Standard room",
+    id: 0,
+    title: "Standard Room",
     text: "floors 3 to 24",
   },
   {
-    id: 2,
+    id: 1,
     title: "Junior Suite",
     text: "floors 3 to 24",
   },
   {
-    id: 3,
-    title: "Royal suite",
+    id: 2,
+    title: "Royal Suite",
     text: "the 22nd and 23rd floors",
   },
   {
-    id: 4,
-    title: "Duplex suite",
+    id: 3,
+    title: "Duplex Suite",
     text: "the 24th floor",
   },
   {
-    id: 5,
-    title: "Presidential suite",
+    id: 4,
+    title: "Presidential Suite",
     text: "the 24th floor",
   },
 ];

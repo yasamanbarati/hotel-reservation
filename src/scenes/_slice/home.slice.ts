@@ -46,17 +46,13 @@ const setFilterHotelRooms = (
   state: ReduxBodyType,
   action: PayloadAction<number>
 ) => {
-  state.FilterHotelRooms = state.HotelRooms;
-
   state.CategoryName = state.RoomsType.find(
     (item) => item.id === action.payload
   )?.title;
   
   state.FilterHotelRooms = state.HotelRooms.filter((item) => {
-    return item.type == state.CategoryName;
+    return item.type === state.CategoryName;
   });
-  console.log(state.FilterHotelRooms);
-  
 };
 
 const HomeSlice = createSlice({

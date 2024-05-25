@@ -6,12 +6,11 @@ import { CoverSection } from "./components/home/cover_section"
 import { Introduction } from "./components/home/introduction_section"
 import { RoomsSlider } from "./components/home/rooms_slider"
 
-
-export const Root = () => {
+const Root = () => {
   initializeAppData()
   return <>
     <Layout>
-      <Container maxWidth='lg' sx={{marginTop:'150px'}}>
+      <Container maxWidth='lg' sx={{marginTop:{xs:'110px',md:'150px'}}}>
         <CoverSection />
         <Introduction />
         <RoomsSlider />
@@ -19,3 +18,5 @@ export const Root = () => {
     </Layout>
   </>
 }
+
+export default Root

@@ -9,10 +9,15 @@ const CardSection = styled(Grid)(({ theme }) => ({
   border: `1px solid ${theme.palette.neutral.dark}`,
   borderRadius: "24px",
   boxShadow: `0 4px 4px 0 ${theme.palette.neutral.dark}`,
+  "& img": {
+    width: "100%",
+    objectFit: "fill",
+    height : '-webkit-fill-available',
+  },
 }));
 const CardContent = styled(Grid)(({ theme }) => ({
   "& h2": {
-    padding: "24px 0",
+    padding: "0 0 18px 0",
     borderBottom: `1px solid ${theme.palette.neutral.dark}`,
   },
   "& .MuiChip-root": {
