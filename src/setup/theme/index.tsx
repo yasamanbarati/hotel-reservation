@@ -48,7 +48,7 @@ export const theme = createTheme({
           },
           style: {
             fontSize: '0.875rem',
-            padding: '8px 24px',
+            padding: '12px 24px',
           },
         },
         {
@@ -104,7 +104,7 @@ export const theme = createTheme({
       lineHeight:'180%',
       fontWeight:'600',
       display: '-webkit-box',
-      WebkitLineClamp:'3',
+      WebkitLineClamp:'2',
       WebkitBoxOrient:'vertical',
       overflow:'hidden',
       textOverflow:'ellipsis',

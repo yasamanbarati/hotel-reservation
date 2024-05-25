@@ -7,11 +7,12 @@ export const palette = {
     main : '#1d9077',
     light: '#a5d3c9'
   },
-  accent: {
+  info: {
     main: '#906d1d'
   },
   neutral: {
     main: '#fff',
+    dark:'#e6e6e6',
     contrastText: '#444444',
   },
   dark: {
@@ -26,14 +27,14 @@ declare module '@mui/material/styles' {
     dark: Palette['primary']
     primary: Palette['primary']
     secondary: Palette['primary']
-    accent: Palette['primary']
+    info: Palette['primary']
   }
   interface PaletteOptions {
     neutral?: PaletteOptions['primary']
     dark?: PaletteOptions['primary']
     primary?: PaletteOptions['primary']
     secondary?: PaletteOptions['primary']
-    accent?: PaletteOptions['primary']
+    info?: PaletteOptions['primary']
   }
 }
 declare module '@mui/material/Button' {
