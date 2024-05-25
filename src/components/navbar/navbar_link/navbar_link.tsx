@@ -1,15 +1,28 @@
-import { Grid, styled, Typography } from "@mui/material"
-import { ContentButton } from "components/button/content_button/content_button"
-import { Link } from "react-router-dom"
-import { useAppSelector } from "setup/store/react-hooks"
+import { Grid, styled, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "setup/store/react-hooks";
 
 interface props {
-  GridDirection?: any
-  LinksDirection?: any
-  GridWrap?: any
-  LinksWrap?: any
+  GridDirection?: any;
+  LinksDirection?: any;
+  GridWrap?: any;
+  LinksWrap?: any;
 }
-const LinkStyle = styled(Link)(({ theme }) => ({
+const NavbarLinkSection = styled(Grid)(({ theme }) => ({
+  display: "flex",
+  height: "100%",
+  [theme.breakpoints.up("md")]: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "auto",
+  },
+  [theme.breakpoints.up("xs")]: {
+    justifyContent: "start",
+    alignItems: "flex-end",
+    width: "100%",
+  },
+}));
+const LinkBox = styled(Link)(({ theme }) => ({
   color: theme.palette.dark.main,
   textDecoration: "none",
   display: "flex",
@@ -49,39 +62,32 @@ const LinkStyle = styled(Link)(({ theme }) => ({
     },
     "&:hover::before": {
       width: "50%",
-    }
+    },
   },
-}))
+}));
 export const NavbarLink = ({
   GridDirection,
   LinksDirection,
   GridWrap,
   LinksWrap,
 }: props) => {
-  const LinksItems = useAppSelector(state => state.home.NavbarLinks)
+  const LinksItems = useAppSelector((state) => state.home.NavbarLinks);
 
   return (
-    <Grid
-    container
+    <NavbarLinkSection
+      container
       xs={12}
       spacing={0}
       direction={LinksDirection}
       flexWrap={LinksWrap}
-      justifyContent="space-between"
-      height="100%"
-      sx={{
-        display: "flex",
-        justifyContent: "start",
-        alignItems: { xs: "flex-end", md: "center" },
-        width: { xs: "100%", md: "auto" }
-      }}>
-        {LinksItems.map((item) => (
-          <Grid item md={3} width={{ xs: "100%", md: "auto" }}>
-            <LinkStyle to={item.path}>
-              <Typography>{item.name}</Typography>
-            </LinkStyle>
-          </Grid>
-        ))}
-    </Grid >
-  )
-}
+    >
+      {LinksItems.map((item, key) => (
+        <Grid key={item.id} item md={3} width={{ xs: "100%", md: "auto" }}>
+          <LinkBox to={item.path}>
+            <Typography>{item.name}</Typography>
+          </LinkBox>
+        </Grid>
+      ))}
+    </NavbarLinkSection>
+  );
+};

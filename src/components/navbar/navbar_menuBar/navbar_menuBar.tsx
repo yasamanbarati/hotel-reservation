@@ -1,18 +1,18 @@
-import { Fragment, useState } from 'react'
-import { IconButton } from '@mui/material'
-import { MenuBar } from './menuBar/menuBar'
-import { Menu } from '@mui/icons-material'
+import { Fragment, useState } from "react";
+import { IconButton } from "@mui/material";
+import { MenuBar } from "./menuBar/menuBar";
+import { Menu } from "@mui/icons-material";
 
 export const NavbarMenuBar = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleDrawerClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
   return (
     <Fragment>
       <IconButton
@@ -21,21 +21,19 @@ export const NavbarMenuBar = () => {
         edge="end"
         onClick={handleDrawerOpen}
         sx={{
-          ...(open && { display: 'flex' }),
+          ...(open && { display: "flex" }),
           right: "12px",
-          position: 'absolute',
-          top: '0',
+          position: "absolute",
+          top: "23px",
           MinHeight: "65px",
           justifyContent: "flex-end",
           alignItems: "center",
-          padding: 'revert',
+          padding: "revert",
         }}
       >
-        <Menu 
-          width="30px"
-          height="25px" />
+        <Menu width="30px" height="25px" />
       </IconButton>
       <MenuBar open={open} handleDrawerClose={handleDrawerClose} />
     </Fragment>
-  )
-}
+  );
+};
