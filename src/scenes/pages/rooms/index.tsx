@@ -43,12 +43,12 @@ export const Rooms = () => {
 
   return (
     <Layout>
-      <Container maxWidth="lg" sx={{marginTop:{xs:'110px',md:'150px'}}}>
+      <Container maxWidth="lg" sx={{ marginTop: { xs: "110px", md: "150px" } }}>
         <Typography component="h2" variant="h2" textAlign="center" mb={3}>
           Rooms and suites
         </Typography>
         <Grid container spacing={2}>
-          {currentData.map((item, key) => {
+          {currentData.map((item) => {
             return (
               <Grid key={item.id} item xs={12} tabletM={6} md={4}>
                 <ContentCard
@@ -56,10 +56,7 @@ export const Rooms = () => {
                   type={item.type}
                   photos={item.photos}
                   price={item.price}
-                  additional_info={item.additional_info}
-                  amenities={item.amenities}
-                  description={item.description}
-                />
+                  capacity={item.capacity} amenities={[]} additional_info={[]}                />
               </Grid>
             );
           })}
