@@ -16,5 +16,9 @@ export interface HotelRoomsInformationType {
   additional_info: string[];
   photos: string[];
   description?: string;
-  reserved_dates?:string[]| null
+  reserved_dates?: string[] | null;
+  capacity?: {
+    basic: number;
+    additional: number;
+  };
 }

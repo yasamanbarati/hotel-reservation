@@ -82,6 +82,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Our cozy Standard Room is perfect for couples or solo travelers looking for a comfortable stay. Enjoy a queen bed, TV, mini-bar, and free WiFi in this room.",
     reserved_dates: ["2024-01-15", "2024-02-20", "2024-03-05"],
+    capacity: {
+      basic: 2,
+      additional: 2,
+    },
   },
   {
     id: 2,
@@ -97,6 +101,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Experience luxury in our Junior Suite, featuring a spacious living area, king bed, balcony with a view, and room service for your convenience.",
     reserved_dates: ["2024-03-25", "2024-04-10"],
+    capacity: {
+      basic: 3,
+      additional: 2,
+    },
   },
   {
     id: 3,
@@ -117,6 +125,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Indulge in opulence with our Royal Suite, offering a four-poster bed, dining area, SPA bath, and a private terrace for a truly luxurious stay.",
     reserved_dates: ["2024-01-15", "2024-02-20", "2024-03-05"],
+    capacity: {
+      basic: 4,
+      additional: 2,
+    },
   },
   {
     id: 4,
@@ -132,6 +144,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Our Duplex Suite is perfect for families or groups, featuring two bedrooms, a kitchenette, fireplace, and a relaxing Jacuzzi for your enjoyment.",
     reserved_dates: ["2024-04-05", "2024-05-15"],
+    capacity: {
+      basic: 6,
+      additional: 2,
+    },
   },
   {
     id: 5,
@@ -152,6 +168,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Experience lavish comfort in our President Suite, offering a master bedroom, home cinema, private elevator, and a wrap-around balcony with stunning views.",
     reserved_dates: ["2024-03-25", "2024-04-10"],
+    capacity: {
+      basic: 7,
+      additional: 2,
+    },
   },
   {
     id: 6,
@@ -167,6 +187,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Our cozy Standard Room is perfect for couples or solo travelers looking for a comfortable stay. Enjoy a queen bed, TV, mini-bar, and free WiFi in this room.",
     reserved_dates: ["2024-05-10", "2024-05-25", "2024-06-10"],
+    capacity: {
+      basic: 2,
+      additional: 1,
+    },
   },
   {
     id: 7,
@@ -182,6 +206,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Experience lavish comfort in our President Suite, offering a master bedroom, home cinema, private elevator, and a wrap-around balcony with stunning views.",
     reserved_dates: ["2024-04-05", "2024-05-15"],
+    capacity: {
+      basic: 3,
+      additional: 2,
+    },
   },
   {
     id: 8,
@@ -202,6 +230,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Experience lavish comfort in our Royal Suite, offering a master bedroom, home cinema, private elevator, and a wrap-around balcony with stunning views.",
     reserved_dates: ["2024-06-30", "2024-07-15"],
+    capacity: {
+      basic: 4,
+      additional: 2,
+    },
   },
   {
     id: 9,
@@ -217,6 +249,10 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Our Duplex Suite is perfect for families or groups, featuring two bedrooms, a kitchenette, fireplace, and a relaxing Jacuzzi for your enjoyment.",
     reserved_dates: [],
+    capacity: {
+      basic: 6,
+      additional: 2,
+    },
   },
   {
     id: 10,
@@ -237,5 +273,9 @@ export const HotelRooms: HotelRoomsInformationType[] = [
     description:
       "Our President Suite is perfect for families or groups, featuring two bedrooms, a kitchenette, fireplace, and a relaxing Jacuzzi for your enjoyment.",
     reserved_dates: ["2024-06-30", "2024-07-15"],
+    capacity: {
+      basic: 8,
+      additional: 2,
+    },
   },
 ];
