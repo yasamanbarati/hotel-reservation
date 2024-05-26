@@ -17,7 +17,7 @@ const CardSection = styled(Grid)(({ theme }) => ({
 }));
 const CardContent = styled(Grid)(({ theme }) => ({
   "& h2": {
-    padding: "0 0 18px 0",
+    padding: "0 0 px 0",
     borderBottom: `1px solid ${theme.palette.neutral.dark}`,
   },
   "& .MuiChip-root": {
