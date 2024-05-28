@@ -1,4 +1,5 @@
 import {
+  FooterLinksType,
   HotelRoomsInformationType,
   NavbarLinksType,
   RoomsTypesProps,
@@ -22,6 +23,71 @@ export const links: NavbarLinksType[] = [
   },
 ];
 
+export const footerLinks:FooterLinksType[] = [
+  {
+    title :'Persians hotel',
+    links: [
+      {
+        name :'room reservation',
+        path: './',
+      },
+      {
+        name :'cooperation opportunity',
+        path: './',
+      },
+      {
+        name :'contact us',
+        path: './',
+      },
+      {
+        name :'site map',
+        path: './',
+      },
+    ],
+  },
+  {
+    title :'customer service',
+    links: [
+      {
+        name :'FAQ',
+        path: './',
+      },
+      {
+        name :'Privacy',
+        path: './',
+      },
+      {
+        name :'filing a complaint',
+        path: './',
+      },
+      {
+        name :'Guarantee',
+        path: './',
+      },
+    ],
+  },
+  {
+    title :'buying guide',
+    links: [
+      {
+        name :'Reservation Registration Guide',
+        path: './',
+      },
+      {
+        name :'payment methods',
+        path: './',
+      },
+      {
+        name: 'how to view reservations',
+        path: './',
+      },
+      {
+        name :'refund and cancellation conditions',
+        path: './',
+      },
+    ],
+  },
+]
 export const specialSaleData = [
   {
     img: "/images/hotel1.webp",
