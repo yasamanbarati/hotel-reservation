@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { Container, Grid, Pagination, Typography, styled } from "@mui/material";
+import { Container, Grid, Pagination, Typography, colors, styled } from "@mui/material";
+import DatePicker from "react-datepicker";
 
 import Layout from "../layout";
 import { useAppSelector } from "setup/store/react-hooks";
 import { ContentCard } from "components/cards/content_card";
 import { dispatch } from "setup/store";
 import { setCurrentRoomsAction } from "scenes/_slice/rooms.slice";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const PaginationBox = styled(Pagination)(() => ({
   margin: "30px 0",
@@ -23,11 +26,33 @@ const PaginationBox = styled(Pagination)(() => ({
     },
   },
 }));
+const FilterBox = styled(Grid)(({ theme }) => ({
+  "& .react-datepicker": {
+    backgroundColor: theme.palette.neutral.main,
+    boxShadow: `0 0 4px 0 ${theme.palette.neutral.dark}`,
+    borderRadius: "16px",
+    border: "transparent",
+    "& .react-datepicker__header": {
+      backgroundColor: theme.palette.primary.light,
+      borderBottomColor: theme.palette.primary.main,
+      padding: "4px 0",
+    },
+    "& .react-datepicker__day--in-selecting-range": {
+      backgroundColor: theme.palette.primary.light,
+    },
+    "& .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range":
+      {
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.neutral.main,
+      },
+  },
+}));
 
 export const Rooms = () => {
   const data = useAppSelector((state) => state.rooms.RoomsList);
   const currentData = useAppSelector((state) => state.rooms.CurrentRooms);
-
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -40,6 +65,11 @@ export const Rooms = () => {
   ) => {
     setCurrentPage(value);
   };
+  const onChange = (dates: [any, any]) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
 
   return (
     <Layout>
@@ -47,6 +77,21 @@ export const Rooms = () => {
         <Typography component="h2" variant="h2" textAlign="center" mb={3}>
           Rooms and suites
         </Typography>
+        <FilterBox container spacing={2}>
+          <Grid item md={5} xs={12}>
+            <DatePicker
+              selected={startDate}
+              onChange={onChange}
+              startDate={startDate}
+              endDate={endDate}
+              minDate={new Date()}
+              selectsRange
+              inline
+              showDisabledMonthNavigation
+            />
+          </Grid>
+        </FilterBox>
+
         <Grid container spacing={2}>
           {currentData.map((item) => {
             return (
@@ -56,7 +101,10 @@ export const Rooms = () => {
                   type={item.type}
                   photos={item.photos}
                   price={item.price}
-                  capacity={item.capacity} amenities={[]} additional_info={[]}                />
+                  capacity={item.capacity}
+                  amenities={[]}
+                  additional_info={[]}
+                />
               </Grid>
             );
           })}
