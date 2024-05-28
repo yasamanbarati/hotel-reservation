@@ -1,18 +1,15 @@
+import React, { Fragment } from "react";
+import { Navbar } from "../../components/navbar";
+import { Footer } from "components/footer/footer";
 
-import React, { Fragment } from 'react'
-import { Navbar } from '../../components/navbar'
-
-const Layout = ({
-    children,
-  }: {
-    children: React.ReactNode
-  }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Fragment>
-        <Navbar />
-          {children}
+      <Navbar />
+      {children}
+      <Footer />
     </Fragment>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
