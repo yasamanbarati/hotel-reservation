@@ -4,6 +4,8 @@ import { NavbarLogo } from "./navbar_logo/navbar_logo";
 import { NavbarMenuBar } from "./navbar_menuBar/navbar_menuBar";
 import { Person } from "@mui/icons-material";
 import { ContentButton } from "components/button/content_button/content_button";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
   boxShadow: "0px 4px 83px rgba(0, 0, 0, 0.11)",
@@ -36,53 +38,73 @@ const NavbarMainSection = styled(Grid)(({ theme }) => ({
     padding: "0",
   },
 }));
-
-const LoginButtonBox = styled(Grid)(({theme})=>({
+const LoginButtonBox = styled(Grid)(({ theme }) => ({
   flexGrow: 1,
-  marginBottom: '0',
-  display: 'flex',
-  justifyContent: 'flex-end',
-  alignItems: 'center',
+  marginBottom: "0",
+  display: "flex",
+  alignItems: "center",
+  padding: "0",
+  "& a": {
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    "& button": {
+      boxShadow: "0px 20px 33px ",
+      borderRadius: "13px",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "10px",
+      width: "75%",
+      height: "100%",
+      fontSize:'1rem',
+      fontWeight: "600",
+      whiteSpace: "nowrap",
+      transition: "0.8s ease-in-out",
+      [theme.breakpoints.up("xs")]: {
+        display: "none",
+      },
+      [theme.breakpoints.up("md")]: {
+        display:"flex",
+      },
+    },
+    "& svg":{
+      [theme.breakpoints.up("xs")]: {
+        display: "flex",
+      },
+      [theme.breakpoints.up("md")]: {
+        display:"none",
+      },
+      justifyContent: "center",
+      alignItems: "center",
+      transition: "0.8s ease-in-out",
+      width: "30px!important",
+      height: "30px!important",
+      padding: "0",
+    }
+  },
+  
+  [theme.breakpoints.up("xs")]: {
+    height: "55px",
+    "& a": {
+      justifyContent: "flex-start",
+    }
+  },
   [theme.breakpoints.up("md")]: {
     height: "100%",
   },
-  [theme.breakpoints.up("xs")]: {
-    height: "55px",
-  },
-  padding: "0",
-}))
-
-const ContentButtonStyle = {
-  boxShadow: "0px 20px 33px ",
-  borderRadius: "13px",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "10px",
-  width: "75%",
-  height: "100%",
-  fontSize: {
-    xs: "0.8rem",
-    sm: "0.85rem",
-    md: "0.86rem",
-    lg: "1rem",
-  },
-  fontWeight: "600",
-  whiteSpace: "nowrap",
-  transition: "0.8s ease-in-out",
-  display: { xs: "none", md: "flex" },
-};
-
-const PersonIconStyle = {
-  display: { xs: "flex", md: "none" },
-  justifyContent: "center",
-  alignItems: "center",
-  transition: "0.8s ease-in-out",
-  width: "30px!important",
-  height: "30px!important",
-  padding: "0",
-};
+}));
 
 export const Navbar = () => {
+
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+  useEffect(() => {
+    setIsLogin(isLogin)
+  }, [isLogin])
+  
+  const handleClick = () => {
+    setIsLogin(true)
+  };
+
   return (
     <CustomAppBar color="inherit">
       <Toolbar>
@@ -115,18 +137,16 @@ export const Navbar = () => {
           >
             <NavbarLink />
           </Grid>
-          <LoginButtonBox
-            item
-            md={2}
-            xs={1}
-          >
-            <ContentButton
-              text="Login"
-              sx={ContentButtonStyle}
-              variant="contained"
-              size="small"
-            />
-            <Person sx={PersonIconStyle} />
+          <LoginButtonBox item md={2} xs={1}>
+            <Link to={"/login"}>
+              <ContentButton
+                text={isLogin === true ? "yasaman":"Login"}
+                variant={isLogin === true ? "outlined":"contained"}
+                size="small"
+                onClick={handleClick}
+              />
+              <Person />
+            </Link>
           </LoginButtonBox>
         </NavbarMainSection>
       </Toolbar>

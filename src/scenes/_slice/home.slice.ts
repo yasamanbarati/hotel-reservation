@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
+  FooterLinksType,
   HotelRoomsInformationType,
   NavbarLinksType,
   RoomsTypesProps,
@@ -7,6 +8,7 @@ import {
 
 interface ReduxBodyType {
   NavbarLinks: NavbarLinksType[];
+  FooterLinks : FooterLinksType[],
   RoomsType: RoomsTypesProps[];
   HotelRooms: HotelRoomsInformationType[];
   FilterHotelRooms: HotelRoomsInformationType[];
@@ -15,6 +17,7 @@ interface ReduxBodyType {
 
 const initialState: ReduxBodyType = {
   NavbarLinks: [],
+  FooterLinks: [],
   RoomsType: [],
   HotelRooms: [],
   FilterHotelRooms: [],
@@ -26,6 +29,13 @@ const setNavbarLinks = (
   action: PayloadAction<NavbarLinksType[]>
 ) => {
   state.NavbarLinks = action.payload;
+};
+
+const setFooterLinks = (
+  state: ReduxBodyType,
+  action: PayloadAction<FooterLinksType[]>
+) => {
+  state.FooterLinks = action.payload;
 };
 
 const setRoomsType = (
@@ -63,6 +73,7 @@ const HomeSlice = createSlice({
     setRoomsType,
     setHotelRooms,
     setFilterHotelRooms,
+    setFooterLinks
   },
 });
 
@@ -71,6 +82,7 @@ export const {
   setRoomsType: setRoomsTypeAction,
   setHotelRooms: setHotelRoomsAction,
   setFilterHotelRooms: setFilterHotelRoomsAction,
+  setFooterLinks: setFooterLinksAction
 } = HomeSlice.actions;
 
 export default HomeSlice.reducer;

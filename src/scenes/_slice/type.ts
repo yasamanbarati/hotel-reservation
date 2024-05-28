@@ -22,3 +22,7 @@ export interface HotelRoomsInformationType {
     additional: number;
   };
 }
+export interface FooterLinksType {
+  title : string,
+  links : { name: string; path: string; }[]
+}
